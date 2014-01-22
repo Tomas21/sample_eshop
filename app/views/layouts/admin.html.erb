@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Eshop Admin</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= controller_name %>
+
+<div class="header admin">
+  <div class="container">
+    <ul class="nav nav-pills">
+      <li class="active"><%= link_to "Home", "#" %></li>
+      <li><%= link_to "Články", admin_posts_path %></li>
+      <li><%= link_to "Produkty", admin_products_path %></li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+</body>
+</html>

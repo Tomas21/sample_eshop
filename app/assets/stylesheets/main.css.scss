@@ -1,0 +1,23 @@
+$app_navigation_bg: darken(#fff, 85);
+$admin_navigation_bg: orange;
+
+
+.header {
+  background-color: $app_navigation_bg;
+  padding: 10px 0;
+
+  &.admin {
+    background-color: $admin_navigation_bg;
+  }
+
+
+  .nav {
+    a {
+      color: #fff;
+    }
+
+    a:hover {
+      background-color: gray;
+    }
+  }
+}

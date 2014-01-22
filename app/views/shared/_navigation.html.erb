@@ -1,0 +1,5 @@
+<ul class="nav nav-pills">
+  <% @items.each do |title, path| %>
+    <li class="<%= request.path == path ? "active" : "" %>"> <%= link_to title, path %> </li>
+  <% end %>
+</ul>

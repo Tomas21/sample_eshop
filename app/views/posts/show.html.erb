@@ -1,0 +1,18 @@
+<h1><%= @post.title %></h1>
+<%= @post.body.html_safe %>
+
+<h2>Komentáre</h2>
+<p><%= pluralize_sk(@comments.count, "komentárov", "komentár", "komentáre") %></p>
+
+<ul>
+  <%= render @comments %>
+</ul>
+
+<h2>Pridať komentár</h2>
+
+<%= form_for [@post, @comment] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+
+  <%= f.submit %>
+<% end %>
