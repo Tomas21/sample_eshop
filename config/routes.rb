@@ -1,5 +1,7 @@
 Eshop::Application.routes.draw do
 
+  resources :categories, only: [:show]
+
   resources :posts, only: [:index, :show] do
     resources :comments
   end
