@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_admin_session
-    unless session[:admin_user_id]
+    unless current_admin
       flash[:alert] = "Pre vstup do adminu sa musis prihlasit"
       redirect_to new_admin_session_url
     end
