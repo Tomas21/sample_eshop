@@ -6,7 +6,9 @@ class AdminSessionsController < ApplicationController
   end
 
   def create
-    if (params[:email] == "jano@gmail.com" && params[:password] == "123")
+    admin_user = AdminUser.where(email: params[:email]).first
+
+    if admin_user && admin_user.authenticate(params[:password])
       session[:logged] = true
       redirect_to admin_posts_url
     else
