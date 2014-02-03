@@ -7,6 +7,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def require_admin_session
+    unless session[:logged]
+      flash[:alert] = "Pre vstup do adminu sa musis prihlasit"
+      redirect_to new_admin_session_url
+    end
+  end
+
   def load_menu_items
     @items = [
       ['Blog', posts_path],

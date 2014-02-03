@@ -14,6 +14,8 @@
       <li class="active"><%= link_to "Home", "#" %></li>
       <li><%= link_to "Články", admin_posts_path %></li>
       <li><%= link_to "Produkty", admin_products_path %></li>
+
+      <li class="pull-right"><%= link_to "Odhlasit sa", admin_session_path(1), method: "delete" %></li>
     </ul>
   </div>
 </div>

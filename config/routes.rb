@@ -1,5 +1,6 @@
 Eshop::Application.routes.draw do
 
+  resources :admin_sessions
   resources :categories, only: [:show]
 
   resources :posts, only: [:index, :show] do
