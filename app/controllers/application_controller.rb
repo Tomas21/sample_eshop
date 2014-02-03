@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_admin
-    @current_admin ||= AdminUser.find(session[:admin_user_id])
+    @current_admin ||= AdminUser.where(id: session[:admin_user_id]).first
   end
 
   def require_admin_session
