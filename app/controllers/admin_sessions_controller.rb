@@ -7,7 +7,7 @@ class AdminSessionsController < ApplicationController
 
   def create
     if (params[:email] == "jano@gmail.com" && params[:password] == "123")
-      session[:user] = true
+      session[:logged] = true
       redirect_to admin_posts_url
     else
       flash[:alert] = "Nespravny email alebo heslo"
