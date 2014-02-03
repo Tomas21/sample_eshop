@@ -4,11 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :load_menu_items
+  helper_method :current_admin
 
   private
 
+  def current_admin
+    @current_admin ||= AdminUser.find(session[:admin_user_id])
+  end
+
   def require_admin_session
-    unless session[:logged]
+    unless session[:admin_user_id]
       flash[:alert] = "Pre vstup do adminu sa musis prihlasit"
       redirect_to new_admin_session_url
     end
