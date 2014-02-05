@@ -4,9 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :load_menu_items
+  before_action :set_locale
   helper_method :current_admin
 
   private
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale]
+  end
 
   def current_admin
     @current_admin ||= AdminUser.where(id: session[:admin_user_id]).first

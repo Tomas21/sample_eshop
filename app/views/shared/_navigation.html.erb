@@ -2,4 +2,7 @@
   <% @navigation_items.each do |title, path| %>
     <li class="<%= request.path == path ? "active" : "" %>"> <%= link_to title, path %> </li>
   <% end %>
+
+  <li class="pull-right"><%= link_to "SK", locale: "sk" %></li>
+  <li class="pull-right"><%= link_to "EN", locale: "en" %></li>
 </ul>

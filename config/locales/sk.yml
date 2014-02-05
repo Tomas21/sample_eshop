@@ -1,0 +1,9 @@
+sk:
+  products:
+    index:
+      title: 'Produkty'
+
+  cart_items:
+    index:
+      title: 'Nakupny kosik'
+      empty_cart: 'Košík je prázdny.'
