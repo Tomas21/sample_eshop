@@ -1,0 +1,23 @@
+<h1>Nakupny kosik</h1>
+
+<% if @items.empty? %>
+  <div class="alert alert-info">
+    Košík je prázdny.
+  </div>
+<% else %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Produkt</th>
+        <th>Ks</th>
+        <th>Cena</th>
+        <th>Cena spolu</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render partial: 'item', collection: @items %>
+    </tbody>
+  </table>
+<% end %>

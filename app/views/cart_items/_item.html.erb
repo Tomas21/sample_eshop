@@ -1,0 +1,7 @@
+<tr>
+  <td><%= Product.find(item[:product_id]).name %></td>
+  <td><%= item[:quantity] %></td>
+  <td><%= number_to_currency Product.find(item[:product_id]).price, unit: '€', format: '%n %u', separator: ',' %></td>
+  <td><%= number_to_currency Product.find(item[:product_id]).price * item[:quantity], unit: '€', format: '%n %u', separator: ',' %></td>
+  <td class="text-right"><%= link_to 'Odstrániť', cart_item_path(item[:product_id]), method: :delete, class: 'btn btn-danger btn-xs', data: {confirm: 'Určite odstrániť z košíka?'} %></td>
+</tr>

@@ -20,8 +20,10 @@ class ApplicationController < ActionController::Base
   end
 
   def load_menu_items
-    @items = [
+    @navigation_items = [
       ['Blog', posts_path],
+      ['Eshop', products_path],
+      ['Nakupny kosik', cart_items_path],
       ['Kontakt', contact_path],
       ['Google', 'http://google.sk']
     ]
