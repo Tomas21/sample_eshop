@@ -12,7 +12,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new params[:product].permit(:name, :price)
+    @product = Product.new params[:product].permit(:name, :price, :image)
 
     if @product.save
       redirect_to admin_products_url
@@ -28,7 +28,7 @@ class Admin::ProductsController < ApplicationController
   def update
     @product = Product.find params[:id]
 
-    if @product.update params[:product].permit(:name, :price)
+    if @product.update params[:product].permit(:name, :price, :image)
       redirect_to admin_products_url
     else
       render :edit
