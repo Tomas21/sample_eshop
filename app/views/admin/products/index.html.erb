@@ -20,7 +20,9 @@
 
     <% @products.each do |product| %>
     <tr>
-      <td><%= image_tag product.image.url, class: 'product-image' %></td>
+      <td>
+        <%= image_tag product.image.thumb.url, class: 'product-image' %>
+      </td>
       <td><%= product.name %></td>
       <td><%= number_to_currency product.price %></td>
       <td><%= l product.created_at, format: :short %></td>

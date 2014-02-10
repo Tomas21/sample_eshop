@@ -1,5 +1,8 @@
 <div class="well">
   <h4><%= product.name %></h4>
+
+  <%= link_to image_tag(product.image.thumb.url), product.image.url, class: 'fancybox' %>
+
   <p>
     Cena: <%= number_to_currency product.price, unit: '€', format: '%n %u', separator: ',' %>
   </p>

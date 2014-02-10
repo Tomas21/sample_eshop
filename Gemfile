@@ -58,3 +58,6 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 # gem 'debugger', group: [:development, :test]
 
 gem 'carrierwave'
+gem 'rmagick'
+
+gem 'fancybox2-rails', '~> 0.2.6'
