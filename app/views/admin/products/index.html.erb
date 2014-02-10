@@ -1,5 +1,30 @@
-<h1>Produkty</h1>
+<h1>Admin produktov</h1>
 
-<p>Admin produktov</p>
+<p>
+  <%= link_to "Pridať produkt", new_admin_product_path, class: "btn btn-primary" %>
+</p>
 
-<p>Pocet produktov: <%= @products_count %>
+<table class="table">
+
+  <thead>
+    <tr>
+      <th>Nazov</th>
+      <th>Cena</th>
+      <th>Pridane</th>
+      <th>Akcie</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= number_to_currency product.price %></td>
+      <td><%= l product.created_at, format: :short %></td>
+      <td><%= link_to "Upravit", edit_admin_product_path(product) %></td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>

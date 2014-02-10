@@ -1,3 +1,20 @@
+<% if @post.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      Formulár obsahuje chyby
+    </div>
+
+    <div class="panel-body">
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+
 <%= form_for [:admin, @post] do |f| %>
 
   <div class="form-group">
@@ -20,6 +37,6 @@
     <%= f.label :published %>
   </div>
 
-  <%= f.submit "Uložiť článok", class: "btn btn-primary" %>
+  <%= f.submit nil, class: "btn btn-primary" %>
 
 <% end %>
