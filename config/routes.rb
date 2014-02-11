@@ -1,5 +1,7 @@
 Eshop::Application.routes.draw do
 
+  resources :users
+
   resources :admin_sessions
   resources :categories, only: [:show]
   resources :products
