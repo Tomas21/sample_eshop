@@ -5,6 +5,7 @@ Eshop::Application.routes.draw do
   resources :products
   resources :cart_items, only: [:index, :create, :destroy]
   resources :user_registrations, only: [:new, :create]
+  resources :user_sessions, only: [:new, :create, :destroy]
 
   resources :posts, only: [:index, :show] do
     resources :comments

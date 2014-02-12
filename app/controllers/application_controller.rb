@@ -6,11 +6,16 @@ class ApplicationController < ActionController::Base
   before_action :load_menu_items
   before_action :set_locale
   helper_method :current_admin
+  helper_method :current_user
 
   private
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def current_user
+    @current_user ||= User.where(id: session[:user_id]).first
   end
 
   def current_admin
@@ -29,8 +34,7 @@ class ApplicationController < ActionController::Base
       ['Blog', posts_path],
       ['Eshop', products_path],
       ['Nakupny kosik', cart_items_path],
-      ['Kontakt', contact_path],
-      ['Registracia', new_user_registration_path]
+      ['Kontakt', contact_path]
     ]
   end
 end

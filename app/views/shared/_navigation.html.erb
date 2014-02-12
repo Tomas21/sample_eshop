@@ -3,6 +3,15 @@
     <li class="<%= request.path == path ? "active" : "" %>"> <%= link_to title, path %> </li>
   <% end %>
 
+  <!--
   <li class="pull-right"><%= link_to "SK", locale: "sk" %></li>
   <li class="pull-right"><%= link_to "EN", locale: "en" %></li>
+  -->
+
+  <% if current_user %>
+    <li class="pull-right"><%= link_to "Odhlásiť sa ako #{current_user.email}", user_session_path(1), method: 'delete', data: { confirm: "Urcite odhlasit?"} %>
+  <% else %>
+    <li class="pull-right"><%= link_to "Registracia", new_user_registration_path %></li>
+    <li class="pull-right"><%= link_to "Prihlasenie", new_user_session_path %></li>
+  <% end %>
 </ul>
