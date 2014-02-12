@@ -30,7 +30,6 @@ class ApplicationController < ActionController::Base
       ['Eshop', products_path],
       ['Nakupny kosik', cart_items_path],
       ['Kontakt', contact_path],
-      ['Google', 'http://google.sk'],
       ['Registracia', new_user_path]
     ]
   end
