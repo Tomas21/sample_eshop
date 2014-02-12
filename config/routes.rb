@@ -1,11 +1,10 @@
 Eshop::Application.routes.draw do
 
-  resources :users
-
   resources :admin_sessions
   resources :categories, only: [:show]
   resources :products
   resources :cart_items, only: [:index, :create, :destroy]
+  resources :user_registrations, only: [:new, :create]
 
   resources :posts, only: [:index, :show] do
     resources :comments

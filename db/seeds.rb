@@ -7,9 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-
-
-
 ['Produkty', 'Novinky', 'Zo sveta IT'].each do |name|
   Category.where(name: name).first_or_create!
 end
+
+# create sample user
+User.where(
+  email: "user1@gmail.com",
+).first_or_create!(
+  password: "123456",
+  password_confirmation: "123456"
+)
