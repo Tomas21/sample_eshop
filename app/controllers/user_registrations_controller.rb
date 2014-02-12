@@ -7,8 +7,10 @@ class UserRegistrationsController < ApplicationController
     @user = User.new user_params
 
     if @user.save
-      session[:user_id] = @user.id
-      flash[:notice] = "Ďakujeme za registráciu, boli ste automaticky prihlásený."
+      # send email
+      UserMailer.welcome_message(@user).deliver
+
+      flash[:notice] = "Ďakujeme za registráciu, pozri si email."
       redirect_to root_path
     else
       flash[:alert] = "Pri registrácii nastala chyba."

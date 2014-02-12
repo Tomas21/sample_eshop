@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
   def create
     user = User.where(email: params[:email]).first
 
-    if user && user.authenticate(params[:password])
+    if user && user.authenticate(params[:password]) && user.activated
       session[:user_id] = user.id
       flash[:notice] = "Bol si prihlásený"
       redirect_to root_url

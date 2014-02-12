@@ -6,6 +6,9 @@ Eshop::Application.routes.draw do
   resources :cart_items, only: [:index, :create, :destroy]
   resources :user_registrations, only: [:new, :create]
   resources :user_sessions, only: [:new, :create, :destroy]
+  #resources :user_confirmations, only: [:create]
+
+  get '/aktivacia/:token' => 'user_confirmations#create', as: :confirmation
 
   resources :posts, only: [:index, :show] do
     resources :comments
