@@ -18,3 +18,10 @@ User.where(
   password: "123456",
   password_confirmation: "123456"
 )
+
+AdminUser.where(
+  email: "admin@gmail.com",
+).first_or_create!(
+  password: "123456",
+  password_confirmation: "123456"
+)

@@ -20,6 +20,7 @@ Eshop::Application.routes.draw do
   namespace :admin do
     resources :posts, except: [:show, :destroy]
     resources :products
+    resources :orders, only: [:index, :show, :destroy]
   end
 
   get "/kontakt" => "pages#contact", as: :contact

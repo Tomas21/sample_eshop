@@ -1,0 +1,8 @@
+<tr>
+  <td><%= order.user.email %></td>
+  <td><%= number_to_currency order.total_price, unit: "€", format: "%n %u" %></td>
+  <td>
+    <%= link_to "Detail", admin_order_path(order) %>
+    <%= link_to "Odstranit", admin_order_path(order), method: 'delete', data: { confirm: "Urcite odstranit?" } %>
+  </td>
+</tr>
