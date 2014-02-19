@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219165857) do
+ActiveRecord::Schema.define(version: 20140219181846) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20140219165857) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.integer  "votes_up",    default: 0
+    t.integer  "votes_down",  default: 0
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"

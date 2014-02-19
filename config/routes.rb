@@ -12,6 +12,10 @@ Eshop::Application.routes.draw do
   get '/aktivacia/:token' => 'user_confirmations#create', as: :confirmation
 
   resources :posts, only: [:index, :show] do
+    member do
+      post 'vote_up'
+      post 'vote_down'
+    end
     resources :comments
   end
 

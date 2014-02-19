@@ -1,6 +1,9 @@
 $app_navigation_bg: darken(#fff, 85);
 $admin_navigation_bg: orange;
 
+big {
+  font-size: 300%;
+}
 
 .header {
   background-color: $app_navigation_bg;

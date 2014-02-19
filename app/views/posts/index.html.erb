@@ -9,4 +9,12 @@
   <h3><%= link_to post.title, post_path(post) %></h3>
 
   <p><%= post.body %></p>
+  
+  <div class="well">
+    Pocet kladnych hlasov: <big id='votes_up_count_for_<%= post.id %>'><%= post.votes_up %></big>
+    Pocet zapornych hlasov: <big id='votes_down_count_for_<%= post.id %>'><%= post.votes_down %></big>
+
+    <%= link_to "+", vote_up_post_path(post), class: "btn btn-success btn-xs", method: 'post', remote: true %>
+    <%= link_to "-", vote_down_post_path(post), class: "btn btn-danger btn-xs", method: 'post', remote: true %>
+  </div>
 <% end %>
