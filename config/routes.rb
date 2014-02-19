@@ -15,6 +15,8 @@ Eshop::Application.routes.draw do
     resources :comments
   end
 
+  get '/admin' => 'admin/posts#index', as: :admin
+
   namespace :admin do
     resources :posts, except: [:show, :destroy]
     resources :products
