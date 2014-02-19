@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212185726) do
+ActiveRecord::Schema.define(version: 20140219165857) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email"
@@ -34,6 +34,26 @@ ActiveRecord::Schema.define(version: 20140212185726) do
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+
+  create_table "order_items", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.decimal  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "quantity"
+  end
+
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
+  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id"
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"

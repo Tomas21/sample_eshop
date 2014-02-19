@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # FIXME: locale switch not working
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
@@ -26,6 +27,13 @@ class ApplicationController < ActionController::Base
     unless current_admin
       flash[:alert] = "Pre vstup do adminu sa musis prihlasit"
       redirect_to new_admin_session_url
+    end
+  end
+
+  def require_user_session
+    unless current_user
+      flash[:alert] = "Pre pokracovanie sa musis prihlasit."
+      redirect_to new_user_session_url
     end
   end
 
